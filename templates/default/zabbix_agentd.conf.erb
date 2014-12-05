@@ -1,0 +1,20 @@
+Hostname=<%= node.zabbix.agent.hostname %>
+
+# Used for Passive Checks and Traps
+Server=<%= node.zabbix.agent.servers.join(',') %>
+<% if node.zabbix.agent.servers_active.first -%>
+# Used for Active Checks
+ServerActive=<%= node.zabbix.agent.servers_active.join(',') %>
+<% end -%>
+
+LogFile=<%= node.zabbix.log_dir %>/zabbix_agentd.log
+DebugLevel=3
+
+# Disable passive checks
+StartAgents=0
+
+EnableRemoteCommands=0
+
+PidFile=<%= node.zabbix.run_dir %>/zabbix_agentd.pid
+
+Include=<%= node.zabbix.agent.include_dir %>
