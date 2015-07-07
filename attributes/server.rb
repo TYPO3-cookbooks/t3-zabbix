@@ -4,3 +4,4 @@ node.override[:zabbix][:server][:configure_options] = [ "--with-libcurl","--with
 node.override[:zabbix][:web][:fqdn] = "monitoring.typo3.org"
 node.override[:zabbix][:web_dir] = "/usr/local/zabbix/web"
 
+node.override['zabbix']['server']['log_level'] = 4
