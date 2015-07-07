@@ -5,7 +5,7 @@ license          "Apache 2.0"
 description      "Zabbix configuration"
 long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
 
-version          "0.1.11"
+version          "0.1.12"
 
 depends          "build-essential"
 depends          "zabbix", "= 0.0.43"
