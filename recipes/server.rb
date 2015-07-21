@@ -27,6 +27,3 @@ resources("template[#{node['zabbix']['etc_dir']}/zabbix_server.conf]").cookbook 
 cron "restart zabbix_server" do
   action :delete
 end
-
-# debug logging as the server annoys us
-node.override['zabbix']['server']['log_level'] = 4
