@@ -20,6 +20,3 @@ suites:
     run_list:
       - recipe[t3-zabbix::server]
     attributes:
-      zabbix:
-        server:
-          version: 2.4.5
