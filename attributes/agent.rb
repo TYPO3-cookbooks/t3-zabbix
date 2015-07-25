@@ -1,4 +1,4 @@
-default[:zabbix][:agent][:version]        = "2.0.11"
+default[:zabbix][:agent][:version]        = "2.4.5"
 default[:zabbix][:agent][:servers]        = ['monitoring.typo3.org']
 default[:zabbix][:agent][:servers_active] = ['monitoring.typo3.org']
 default[:zabbix][:agent][:branch]         = "ZABBIX%20Latest%20Stable"
