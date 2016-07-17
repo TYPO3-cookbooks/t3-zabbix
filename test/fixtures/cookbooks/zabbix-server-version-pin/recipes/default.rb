@@ -1,0 +1,1 @@
+log "I do nothing, I am here to pin the cookbooks for the Zabbix server suite"
