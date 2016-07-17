@@ -11,9 +11,9 @@ platforms:
   - name: debian-7.8
 
 suites:
-  - name: default
+  - name: agent
     run_list:
-      - recipe[t3-zabbix::default]
+      - recipe[t3-zabbix::agent]
     attributes:
 
   - name: server
