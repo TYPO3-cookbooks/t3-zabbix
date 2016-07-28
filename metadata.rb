@@ -10,6 +10,3 @@ version          "0.2.4"
 depends          "build-essential"
 depends          "zabbix", "= 0.0.43"
 depends          "zabbix-custom-checks"
-
-# only for testing
-depends          "apt"

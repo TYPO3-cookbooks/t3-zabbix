@@ -8,9 +8,13 @@ provisioner:
   name: chef_zero
 
 platforms:
+  - name: debian-6.0.10
+    driver:
+      provision: true
+      vagrantfiles:
+        - vagrant_debian6.rb
   - name: debian-7.8
-    run_list:
-      - recipe[apt]
+  - name: debian-8.4
 
 suites:
   - name: agent
@@ -20,5 +24,21 @@ suites:
 
   - name: server
     run_list:
+      # if we would pin the mysql/database versions here, this would restrict them
+      # for all nodes in our infrastructure - to pin them only for the server version,
+      # we use this trick for testing.
+      # Long story short: server and agent recipes must not go into a single cookbook!
+      #   ~ young Steffen
+      #
+      - recipe[zabbix-server-version-pin]
       - recipe[t3-zabbix::server]
     attributes:
+
+  - name: server-3.0
+    run_list:
+      - recipe[zabbix-server-version-pin]
+      - recipe[t3-zabbix::server]
+    attributes:
+      zabbix:
+        server:
+          version: 3.0.4

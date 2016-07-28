@@ -8,6 +8,8 @@ file "/etc/mysql/conf.d/zabbix-tuning.cnf" do
   notifies :restart, "service[mysql]"
 end
 
+package "libssh2-1-dev"
+
 [
   "database::mysql",
   "mysql::server",
