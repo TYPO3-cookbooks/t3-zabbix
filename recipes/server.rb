@@ -8,7 +8,10 @@ file "/etc/mysql/conf.d/zabbix-tuning.cnf" do
   notifies :restart, "service[mysql]"
 end
 
+node.set['build-essential']['compile_time'] = true
+
 [
+  "build-essential",
   "database::mysql",
   "mysql::server",
   "zabbix",
