@@ -8,17 +8,22 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: debian-7.8
-    run_list:
-      - recipe[apt]
+- name: debian-7.11
+  run_list:
+    - recipe[apt]
+- name: debian-8.6
+  run_list:
+    - recipe[apt]
+
 
 suites:
-  - name: agent
-    run_list:
-      - recipe[t3-zabbix::agent]
-    attributes:
+- name: agent
+  run_list:
+    - recipe[t3-zabbix::agent]
+  attributes:
 
-  - name: server
-    run_list:
-      - recipe[t3-zabbix::server]
-    attributes:
+- name: server
+  excludes: debian-8.6
+  run_list:
+    - recipe[t3-zabbix::server]
+  attributes:
