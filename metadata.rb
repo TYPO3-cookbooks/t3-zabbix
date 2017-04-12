@@ -9,6 +9,7 @@ version          IO.read(File.join(File.dirname(__FILE__), 'VERSION')) rescue '0
 depends          "build-essential"
 depends          "zabbix", "= 0.0.43"
 depends          "zabbix-custom-checks"
+depends          "chef_handler"
 
 # only for testing
 depends          "apt"
