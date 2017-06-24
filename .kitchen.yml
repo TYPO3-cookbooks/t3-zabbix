@@ -7,6 +7,9 @@ driver:
 provisioner:
   name: chef_zero
 
+verifier:
+  name: inspec
+
 platforms:
 - name: debian-7.11
   run_list:
@@ -21,6 +24,12 @@ suites:
   run_list:
     - recipe[t3-zabbix::agent]
   attributes:
+    zabbix:
+      agent:
+        servers:
+        - localhost
+        servers_active:
+        - localhost
 
 - name: server
   excludes: debian-8.6
