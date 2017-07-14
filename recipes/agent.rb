@@ -14,6 +14,7 @@ resources("template[/etc/init.d/zabbix_agentd]").cookbook "t3-zabbix"
 # https://support.zabbix.com/browse/ZBX-11544
 if node['lsb']['release'].to_i >= 8 && (!node.has_key?('virtualization') || node['virtualization']['role'] != 'guest')
   log 'Adjusting systemd\'s logind.conf to avoid ZBX-11544'
+  node.default['systemd']['logind']['n_auto_v_ts'] = nil
   node.default['systemd']['logind']['remove_ipc'] = false
   include_recipe 'systemd::logind'
 end
