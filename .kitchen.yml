@@ -17,6 +17,9 @@ platforms:
 - name: debian-8.6
   run_list:
     - recipe[apt]
+- name: debian-9.0
+  run_list:
+    - recipe[apt]
 
 
 suites:
