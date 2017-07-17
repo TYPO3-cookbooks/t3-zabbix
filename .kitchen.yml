@@ -17,6 +17,9 @@ platforms:
 - name: debian-8.6
   run_list:
     - recipe[apt]
+- name: debian-9.0
+  run_list:
+    - recipe[apt]
 
 
 suites:
@@ -32,7 +35,7 @@ suites:
         - localhost
 
 - name: server
-  excludes: debian-8.6
+  includes: debian-7.11
   run_list:
     - recipe[t3-zabbix::server]
   attributes:
