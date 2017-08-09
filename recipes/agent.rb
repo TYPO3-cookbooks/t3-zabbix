@@ -9,10 +9,10 @@ resources("template[#{node['zabbix']['etc_dir']}/zabbix_agentd.conf]").cookbook 
 # why is writing LSB-compliant init scripts so hard?
 resources("template[/etc/init.d/zabbix_agentd]").cookbook "t3-zabbix"
 
-# in case of physical Debian 8+ systems, adjust systemd
+# in case of Debian 8+ systems, adjust systemd
 # https://forge.typo3.org/issues/79563
 # https://support.zabbix.com/browse/ZBX-11544
-if node['lsb']['release'].to_i >= 8 && (!node.has_key?('virtualization') || node['virtualization']['role'] != 'guest')
+if node['lsb']['release'].to_i >= 8
   log 'Adjusting systemd\'s logind.conf to avoid ZBX-11544'
   node.default['systemd']['logind']['n_auto_v_ts'] = nil
   node.default['systemd']['logind']['remove_ipc'] = false
