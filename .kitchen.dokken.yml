@@ -8,31 +8,30 @@
 driver:
   name: dokken
   privileged: true # because Docker and SystemD/Upstart
+  chef_version: 12.21.3
 
 transport:
   name: dokken
 
 provisioner:
   name: dokken
+  # chef_log_level: debug
 
 platforms:
+- name: debian-10
+  driver:
+    image: dokken/debian-10
+    pid_one_command: /bin/systemd
+
 - name: debian-9
   driver:
-    image: debian:9
+    image: dokken/debian-9
     pid_one_command: /bin/systemd
-    intermediate_instructions:
-      - RUN /usr/bin/apt-get update
-      - RUN /usr/bin/apt-get install systemd -y
-      - RUN /usr/bin/apt-get install gpg -y
-      - RUN /usr/bin/apt-get install apt-transport-https lsb-release procps net-tools -y
 
 - name: debian-8
   driver:
-    image: debian:8
+    image: dokken/debian-8
     pid_one_command: /bin/systemd
-    intermediate_instructions:
-      - RUN /usr/bin/apt-get update
-      - RUN /usr/bin/apt-get install apt-transport-https lsb-release procps net-tools -y
 
 # comment this out, if Debian 7 is not needed
 - name: debian-7
