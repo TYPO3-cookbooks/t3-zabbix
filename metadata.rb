@@ -13,7 +13,7 @@ depends          "zabbix-custom-checks"
 depends          "chef_handler", "< 3.0.0" # https://github.com/chef-cookbooks/chef_handler/issues/61
 depends          "systemd",      "= 2.1.3"
 
-# only for testing
+# Only for testing
 depends          "apt"
 
 # For compatibility with Chef 12.x
