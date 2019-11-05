@@ -7,7 +7,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), "README.md"))
 version          IO.read(File.join(File.dirname(__FILE__), 'VERSION')) rescue '0.0.1'
 
 depends          "build-essential"
-depends          "zabbix", "= 0.0.43"
+depends          "zabbix", "~> 0.0.43"
 depends          "zabbix-custom-checks"
 
 depends          "chef_handler", "< 3.0.0" # https://github.com/chef-cookbooks/chef_handler/issues/61
@@ -15,3 +15,6 @@ depends          "systemd",      "= 2.1.3"
 
 # only for testing
 depends          "apt"
+
+# For compatibility with Chef 12.x
+depends "chef-sugar",   "< 5.0.0"
