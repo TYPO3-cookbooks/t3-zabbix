@@ -15,3 +15,6 @@ depends          "systemd",      "= 2.1.3"
 
 # only for testing
 depends          "apt"
+
+# For compatibility with Chef 12.x
+depends "chef-sugar",   "< 5.0.0"
