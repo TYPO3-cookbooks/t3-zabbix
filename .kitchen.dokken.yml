@@ -22,16 +22,22 @@ platforms:
   driver:
     image: dokken/debian-10
     pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN /usr/bin/apt update
 
 - name: debian-9
   driver:
     image: dokken/debian-9
     pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN /usr/bin/apt update
 
 - name: debian-8
   driver:
     image: dokken/debian-8
     pid_one_command: /bin/systemd
+    intermediate_instructions:
+      - RUN /usr/bin/apt update
 
 # comment this out, if Debian 7 is not needed
 - name: debian-7
